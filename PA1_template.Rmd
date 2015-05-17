@@ -13,7 +13,7 @@ data$interval.factor = as.factor(data$interval)
 ```
 
 ## What is mean total number of steps taken per day?
-Compute daily number of steps and observations available 
+Compute daily number of steps 
 ```{r computeDailyData, echo=TRUE}
 daily.steps = tapply(data$steps,data$date,sum,na.rm=TRUE)
 ```
@@ -36,7 +36,7 @@ median(daily.data$steps)
 ```
 
 ## What is the average daily activity pattern?
-Compute per-interval number of steps, observations available, and mean number of steps 
+Compute per-interval mean number of steps 
 ```{r computeIntervalData, echo=TRUE}
 interval.mean = tapply(data$steps,data$interval,mean,na.rm=TRUE)
 ```
