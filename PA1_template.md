@@ -9,7 +9,7 @@ data$interval.factor = as.factor(data$interval)
 ```
 
 ## What is mean total number of steps taken per day?
-Compute daily number of steps and observations available 
+Compute daily number of steps 
 
 ```r
 daily.steps = tapply(data$steps,data$date,sum,na.rm=TRUE)
@@ -49,7 +49,7 @@ median(daily.data$steps)
 ```
 
 ## What is the average daily activity pattern?
-Compute per-interval number of steps, observations available, and mean number of steps 
+Compute per-interval mean number of steps 
 
 ```r
 interval.mean = tapply(data$steps,data$interval,mean,na.rm=TRUE)
@@ -78,6 +78,8 @@ interval.data$mean.steps[which.max(interval.data$mean.steps)]
 ##      835 
 ## 206.1698
 ```
+
+Activity starts after 5am, and the interval with maximum average activity is reached at 8.35am, which could correspond to a commute to work. Activity thoughout the rest of the working day is lower, and eventually decreases to virtually zero in the evening time. 
 
 ## Imputing missing values
 Calculate total number of rows with NAs

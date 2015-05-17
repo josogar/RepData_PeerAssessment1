@@ -55,6 +55,8 @@ Compute maximum average number of steps and corresponding interval
 interval.data$mean.steps[which.max(interval.data$mean.steps)]
 ```
 
+Activity starts after 5am, and the interval with maximum average activity is reached at 8.35am, which could correspond to a commute to work. Activity thoughout the rest of the working day is lower, and eventually decreases to virtually zero in the evening time. 
+
 ## Imputing missing values
 Calculate total number of rows with NAs
 ```{r numNAs, echo=TRUE}

@@ -71,7 +71,7 @@ data$interval.factor = as.factor(data$interval)</code></pre>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level2">
 <h2>What is mean total number of steps taken per day?</h2>
-<p>Compute daily number of steps and observations available</p>
+<p>Compute daily number of steps</p>
 <pre class="r"><code>daily.steps = tapply(data$steps,data$date,sum,na.rm=TRUE)</code></pre>
 <p>Create data frame with daily data</p>
 <pre class="r"><code>daily.data = data.frame(date=names(daily.steps),steps=daily.steps)</code></pre>
@@ -87,7 +87,7 @@ ggplot(daily.data, aes(x=steps)) + geom_histogram()</code></pre>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
 <h2>What is the average daily activity pattern?</h2>
-<p>Compute per-interval number of steps, observations available, and mean number of steps</p>
+<p>Compute per-interval mean number of steps</p>
 <pre class="r"><code>interval.mean = tapply(data$steps,data$interval,mean,na.rm=TRUE)</code></pre>
 <p>Create data frame with per-interval data</p>
 <pre class="r"><code>interval.data = data.frame(interval=as.numeric(names(interval.mean)),mean.steps=interval.mean)</code></pre>
@@ -98,6 +98,7 @@ ggplot(daily.data, aes(x=steps)) + geom_histogram()</code></pre>
 <pre class="r"><code>interval.data$mean.steps[which.max(interval.data$mean.steps)]</code></pre>
 <pre><code>##      835 
 ## 206.1698</code></pre>
+<p>Activity starts after 5am, and the interval with maximum average activity is reached at 8.35am, which could correspond to a commute to work. Activity thoughout the rest of the working day is lower, and eventually decreases to virtually zero in the evening time.</p>
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
